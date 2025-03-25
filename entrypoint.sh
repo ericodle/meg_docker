@@ -20,7 +20,7 @@ cd nucleof429zi_cicd
 
 # Configure GitHub Actions Runner (use actual GitHub repository URL and token)
 if [ ! -d "/actions-runner/.runner" ]; then
-  /actions-runner/config.sh --url https://github.com/ericodle/nucleof429zi_cicd --token ARL35QYXE6CUPXEIOW3VAYTH4ITBO
+  /actions-runner/config.sh --url https://github.com/ericodle/nucleof429zi_cicd --token ARL35Q52QAF4KEBODLMKW4TH4I5Z2
 fi
 
 # Run the GitHub Actions Runner
