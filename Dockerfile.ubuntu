@@ -61,7 +61,7 @@ RUN mkdir /actions-runner && cd /actions-runner \
 RUN chown -R gha:gha /usr/src /actions-runner
 
 # Copy the entrypoint script to the root (still as root)
-COPY ./entrypoint.sh /entrypoint.sh
+COPY ./ubuntu-entrypoint.sh /entrypoint.sh
 
 # Change permissions while still root
 RUN chmod +x /entrypoint.sh
