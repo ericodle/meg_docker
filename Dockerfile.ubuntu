@@ -63,9 +63,6 @@ RUN chmod +x /entrypoint.sh
 # Switch to the 'gha' user
 USER gha
 
-# Set working directory to the user's home directory for the runner
-WORKDIR /actions-runner
-
 # Set the entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
 
