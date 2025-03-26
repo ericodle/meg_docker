@@ -9,6 +9,8 @@ sudo chown -R $USER:$USER ./ubuntu_ar #if needed
 cd ./ubuntu_ar
 curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
+cd ..
+
 ```
 
 ## setting up the ubuntu container:
