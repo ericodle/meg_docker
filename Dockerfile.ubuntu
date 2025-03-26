@@ -1,7 +1,6 @@
 # Use Debian as the base image
 FROM ubuntu:latest
 
-# Define version variables for Zephyr SDK
 ARG ZEPHYR_SDK_VERSION=0.17.0
 ARG ZEPHYR_SDK_INSTALL_DIR=/opt/toolchains/zephyr-sdk-${ZEPHYR_SDK_VERSION}
 ARG ZEPHYR_SDK_TOOLCHAINS="-t arm-zephyr-eabi"
@@ -26,18 +25,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     g++-multilib \
     qemu-utils qemu-system-x86 qemu-system \
     curl \
-    sudo \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Create the actionsrunner user and set permissions
-RUN useradd -m -d /home/actionsrunner -s /bin/bash actionsrunner \
-    && mkdir -p /home/actionsrunner/.west \
-    && chown -R actionsrunner:actionsrunner /home/actionsrunner
-
-# Set the user to actionsrunner
-USER actionsrunner
-
-# Set up Python virtual environment for actionsrunner user
+# Set up Python virtual environment
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV && \
     $VIRTUAL_ENV/bin/pip install --no-cache-dir wheel west
@@ -55,13 +45,10 @@ ENV ZEPHYR_TOOLCHAIN_VARIANT=zephyr
 ENV ZEPHYR_SDK_INSTALL_DIR=/opt/toolchains/zephyr-sdk-${ZEPHYR_SDK_VERSION}
 ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
 
-# Set the home directory for the actionsrunner user
-ENV HOME=/home/actionsrunner
-
-# Copy the entrypoint script to the root
+# Copy the entrypoint script to the root (still as root)
 COPY ./ubuntu-entrypoint.sh /entrypoint.sh
 
-# Set permissions on entrypoint script for actionsrunner
+# Change permissions while still root
 RUN chmod +x /entrypoint.sh
 
 # Set the entrypoint
