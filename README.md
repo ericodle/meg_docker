@@ -7,6 +7,7 @@
 ### Be sure to label the runner "ubuntu-runner"
 
 ```sh
+docker pull ubuntu:latest
 docker build -t ubuntu_image -f Dockerfile.ubuntu .
 docker run -it --name ubuntu_container ubuntu_image bash
 ```
