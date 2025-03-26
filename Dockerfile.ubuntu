@@ -52,7 +52,7 @@ ENV ZEPHYR_SDK_INSTALL_DIR=/opt/toolchains/zephyr-sdk-${ZEPHYR_SDK_VERSION}
 ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
 
 # Ensure the user has permissions to access necessary directories
-RUN chown -R gha:gha /usr/src /actions-runner
+RUN chown -R gha:gha /usr/src
 
 # Copy the entrypoint script to the root (still as root)
 COPY ./ubuntu-entrypoint.sh /entrypoint.sh
