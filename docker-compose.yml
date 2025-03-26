@@ -1,12 +1,14 @@
 services:
   ubuntu:
-    image: ubuntu_image  
+    image: ubuntu_image
     container_name: ubuntu_container
     volumes:
       - ./ubuntu_ar:/actions-runner
-    command: bash /entrypoint.sh  
-    stdin_open: true  
+    command: bash /entrypoint.sh
+    stdin_open: true
     tty: true
     environment:
       - GITHUB_URL=${GITHUB_URL}
       - GITHUB_RUNNER_TOKEN=${GITHUB_RUNNER_TOKEN}
+    user: "runner"  # Ensure the container runs as the 'runner' user
+    working_dir: /  # Set working directory to root directory
