@@ -17,7 +17,7 @@ pip install --no-cache-dir natsort pyelftools junitparser pytest psutil tabulate
 
 # Configure GitHub Actions Runner (use actual GitHub repository URL and token)
 if [ ! -d "/actions-runner/.runner" ]; then
-  /actions-runner/config.sh --url https://github.com/ericodle/nucleof429zi_cicd --token ARL35QZBKMBME32ZCHPIOR3H4J4NA --labels ubuntu-runner
+  /actions-runner/config.sh --url "$GITHUB_URL" --token "${GITHUB_RUNNER_TOKEN}" --labels ubuntu-runner
 fi
 
 # Run the GitHub Actions Runner
