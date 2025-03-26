@@ -1,5 +1,15 @@
 # meg_docker
 
+## set up the actions-runner folders to be attached as volume to the containers
+### for ubuntu container
+```sh
+mkdir -p ./ubuntu_ar # if needed
+sudo chown -R $USER:$USER ./ubuntu_ar #if needed
+
+cd ./ubuntu_ar
+curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
+tar xzf actions-runner-linux-x64-2.323.0.tar.gz
+```
 
 ## setting up the ubuntu container:
 
@@ -9,7 +19,7 @@
 ```sh
 docker pull ubuntu:latest
 docker build -t ubuntu_image -f Dockerfile.ubuntu .
-docker run -it --name ubuntu_container ubuntu_image bash
+docker compose up
 ```
 
 ## setting up the debian container:

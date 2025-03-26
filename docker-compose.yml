@@ -1,0 +1,9 @@
+services:
+  ubuntu:
+    image: ubuntu_image  
+    container_name: ubuntu_container
+    volumes:
+      - ./ubuntu_ar:/actions-runner
+    command: bash /entrypoint.sh  
+    stdin_open: true  
+    tty: true
