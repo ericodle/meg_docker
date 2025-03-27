@@ -71,3 +71,13 @@ docker compose up -d
 docker build -t arch_image -f Dockerfile.arch .
 docker compose up -d
 ```
+
+# Re-starting actions runner
+
+You have to reset the permission with 
+
+```
+sudo chmod -R 777 ./ubuntu_ar 
+```
+
+etc. beofre going itnto the dockerfile, cd to actions-runner, and running ./run.sh
