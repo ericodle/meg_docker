@@ -21,4 +21,11 @@ pip install --no-cache-dir natsort pyelftools junitparser pytest psutil tabulate
 # Move into the test directory
 cd nucleof429zi_cicd
 
-wait $!
+# Create results directory with proper permissions
+mkdir -p /home/gha/twister_results
+
+# Run Twister tests
+west twister -T tests --verbose --integration --outdir twister_results
+
+# Keep the container running
+exec "$@"
