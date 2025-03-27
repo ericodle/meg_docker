@@ -15,7 +15,8 @@ cd ./ubuntu_ar
 curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ```
-### Configure the runner
+... then configure the runner
+
 ```sh
 ./config.sh # Configure with specific runner token
 ./run.sh # Start the runner
@@ -30,7 +31,24 @@ curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ```
 
-### Configure the runner
+... then configure the runner
+
+```sh
+./config.sh # Configure with specific runner token
+./run.sh # Start the runner
+```
+
+### Install the Arch actions runner directory
+```sh
+mkdir -p ./arch_ar
+sudo chmod -R 777 ./arch_ar 
+cd ./arch_ar
+curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
+tar xzf actions-runner-linux-x64-2.323.0.tar.gz
+```
+
+... then configure the runner
+
 ```sh
 ./config.sh # Configure with specific runner token
 ./run.sh # Start the runner
