@@ -77,12 +77,23 @@ docker compose up -d
 Fix permissions locally if necessary
 ```
 sudo chmod -R 777 ./ubuntu_ar 
+sudo chmod -R 777 ./debian_ar 
+sudo chmod -R 777 ./arch_ar 
+
 ```
 
 Delete the old _work content?
 
 Re-start the locally hosted runner
 ```
-docker compose up -d ubuntu
+docker compose up -d
+docker compose up -d
+docker compose up -d
+```
+and then
+
+```
 docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
+docker compose exec debian bash -c "cd actions-runner/ && ./run.sh"
+docker compose exec arch bash -c "cd actions-runner/ && ./run.sh"
 ```
