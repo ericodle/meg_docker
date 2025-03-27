@@ -1,5 +1,8 @@
 services:
   ubuntu:
+    build:
+      context: .
+      dockerfile: Dockerfile.ubuntu
     image: ubuntu_image
     container_name: ubuntu_container
     volumes:
@@ -7,7 +10,11 @@ services:
     stdin_open: true
     tty: true
     command: tail -f /dev/null
+
   debian:
+    build:
+      context: .
+      dockerfile: Dockerfile.debian
     image: debian_image
     container_name: debian_container
     volumes:
@@ -15,7 +22,11 @@ services:
     stdin_open: true
     tty: true
     command: tail -f /dev/null
+
   arch:
+    build:
+      context: .
+      dockerfile: Dockerfile.arch
     image: arch_image
     container_name: arch_container
     volumes:
@@ -23,6 +34,3 @@ services:
     stdin_open: true
     tty: true
     command: tail -f /dev/null
-
-
-
