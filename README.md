@@ -1,6 +1,6 @@
 # meg_docker
 
-## set up the actions-runner folders to be attached as volume to the containers
+## Create folds for the runners
 
 ### Install the required dependencies locally
 ```sh
@@ -15,6 +15,11 @@ cd ./ubuntu_ar
 curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ```
+### Configure the runner
+```sh
+./config.sh # Configure with specific runner token
+./run.sh # Start the runner
+```
 
 ### Install the Debian actions runner directory
 ```sh
@@ -25,18 +30,19 @@ curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ```
 
-## setting up the ubuntu container:
+### Configure the runner
+```sh
+./config.sh # Configure with specific runner token
+./run.sh # Start the runner
+```
 
-### Don't forget to update entrypoint.sh with a current action runner token before you build the image!
-### Be sure to label the runner "ubuntu-runner"
+## Set up runners
 
 ```sh
 docker pull ubuntu:latest
 docker build -t ubuntu_image -f Dockerfile.ubuntu .
 docker compose up
 ```
-
-## setting up the debian container:
 
 ### Don't forget to update entrypoint.sh with a current action runner token before you build the image!
 ### Be sure to label the runner "debian-runner"
