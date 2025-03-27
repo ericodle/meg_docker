@@ -74,17 +74,15 @@ docker compose up -d
 
 # Re-starting actions runner
 
-Restart the container if necessary
-```
-docker compose up -d ubuntu
-```
-
 Fix permissions locally if necessary
 ```
 sudo chmod -R 777 ./ubuntu_ar 
 ```
 
+Delete the old _work content?
+
 Re-start the locally hosted runner
 ```
+docker compose up -d ubuntu
 docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
 ```
