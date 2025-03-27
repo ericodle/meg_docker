@@ -3,14 +3,15 @@
 ## set up the actions-runner folders to be attached as volume to the containers
 ### for ubuntu container
 ```sh
-mkdir -p ./ubuntu_ar # if needed
-sudo chown -R $USER:$USER ./ubuntu_ar #if needed
+sudo apt install libssl-dev libicu-dev libcurl4-openssl-dev libkrb5-dev zlib1g-dev #locally
+
+mkdir -p ./ubuntu_ar
+sudo chown -R $USER:$USER ./ubuntu_ar
+sudo chmod -R 777 ./ubuntu_ar 
 
 cd ./ubuntu_ar
 curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
-cd ..
-
 ```
 
 ## setting up the ubuntu container:

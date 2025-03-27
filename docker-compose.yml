@@ -6,4 +6,5 @@ services:
       - ./ubuntu_ar:/actions-runner
     stdin_open: true
     tty: true
+    command: tail -f /dev/null
 

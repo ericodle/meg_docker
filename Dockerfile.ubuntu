@@ -38,7 +38,7 @@ RUN useradd -m gha
 # Set up Python virtual environment
 ENV VIRTUAL_ENV=/opt/venv
 RUN python3 -m venv $VIRTUAL_ENV && \
-    $VIRTUAL_ENV/bin/pip install --no-cache-dir wheel west
+    $VIRTUAL_ENV/bin/pip install --no-cache-dir wheel west natsort pyelftools junitparser pytest psutil tabulate pyserial anytree ply
 
 # Set the correct permissions for the virtual environment
 RUN chown -R gha:gha /opt/venv
@@ -70,4 +70,3 @@ USER gha
 
 # Set the entrypoint
 ENTRYPOINT ["/entrypoint.sh"]
-
