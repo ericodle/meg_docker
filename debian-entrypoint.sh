@@ -4,6 +4,9 @@ set -e  # Exit immediately if a command fails
 # Activate the virtual environment
 source /opt/venv/bin/activate
 
+# Switch to the user's home directory where there are write permissions
+cd /home/gha
+
 # Initialize the West workspace only if it hasn't been initialized yet
 if [ ! -d ".west" ]; then
     west init -m https://github.com/ericodle/nucleof429zi_cicd
@@ -18,11 +21,11 @@ pip install --no-cache-dir natsort pyelftools junitparser pytest psutil tabulate
 # Move into the test directory
 cd nucleof429zi_cicd
 
-# Configure GitHub Actions Runner (use actual GitHub repository URL and token)
-if [ ! -d "/actions-runner/.runner" ]; then
-  /actions-runner/config.sh --url https://github.com/ericodle/nucleof429zi_cicd --token ARL35Q3OMETPSK36H3DMDOLH4J3AW --labels debian-runner
-fi
+# Create results directory with proper permissions
+mkdir -p /home/gha/twister_results
 
-# Run the GitHub Actions Runner
-/actions-runner/run.sh
+# Run Twister tests
+west twister -T tests --verbose --integration --outdir twister_results
 
+# Keep the container running
+exec "$@"
