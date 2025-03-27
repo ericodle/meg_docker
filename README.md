@@ -87,8 +87,6 @@ Delete the old _work content?
 Re-start the locally hosted runner
 ```
 docker compose up -d
-docker compose up -d
-docker compose up -d
 ```
 and then
 
