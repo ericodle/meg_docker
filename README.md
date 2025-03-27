@@ -82,8 +82,6 @@ sudo chmod -R 777 ./arch_ar
 
 ```
 
-Delete the old _work content?
-
 Re-start the locally hosted runner
 ```
 docker compose down && docker compose up --build -d
