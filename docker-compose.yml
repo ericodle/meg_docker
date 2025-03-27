@@ -15,4 +15,14 @@ services:
     stdin_open: true
     tty: true
     command: tail -f /dev/null
+  arch:
+    image: arch_image
+    container_name: arch_container
+    volumes:
+      - ./arch_ar:/actions-runner
+    stdin_open: true
+    tty: true
+    command: tail -f /dev/null
+
+
 

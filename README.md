@@ -66,3 +66,8 @@ docker pull debian:latest
 docker build -t debian_image -f Dockerfile.debian .
 docker compose up -d
 ```
+## Arhc container setup
+```sh
+docker build -t arch_image -f Dockerfile.arch .
+docker compose up -d
+```
