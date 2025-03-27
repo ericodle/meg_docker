@@ -36,18 +36,17 @@ tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ./run.sh # Start the runner
 ```
 
-## Set up runners
+## Set up Docker containers
 
+### Ubuntu container setup
 ```sh
 docker pull ubuntu:latest
 docker build -t ubuntu_image -f Dockerfile.ubuntu .
-docker compose up
+docker compose up -d
 ```
-
-### Don't forget to update entrypoint.sh with a current action runner token before you build the image!
-### Be sure to label the runner "debian-runner"
-
+### Debian container setup
 ```sh
+docker pull debian:latest
 docker build -t debian_image -f Dockerfile.debian .
-docker run -it --name debian_container debian_image bash
+docker compose up -d
 ```

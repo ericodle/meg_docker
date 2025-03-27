@@ -7,4 +7,12 @@ services:
     stdin_open: true
     tty: true
     command: tail -f /dev/null
+  debian:
+    image: debian_image
+    container_name: debian_container
+    volumes:
+      - ./debian_ar:/actions-runner
+    stdin_open: true
+    tty: true
+    command: tail -f /dev/null
 
