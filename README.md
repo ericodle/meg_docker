@@ -74,8 +74,17 @@ docker compose up -d
 
 # Re-starting actions runner
 
-You have to reset the permission with 
+Restart the container if necessary
+```
+docker compose up -d ubuntu
+```
 
+Fix permissions locally if necessary
 ```
 sudo chmod -R 777 ./ubuntu_ar 
+```
+
+Re-start the locally hosted runner
+```
+docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
 ```
