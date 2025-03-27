@@ -86,7 +86,7 @@ Re-start the locally hosted runner
 ```
 docker compose down && docker compose up --build -d
 ```
-and then
+and then in separate shell sessions
 
 ```
 docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
