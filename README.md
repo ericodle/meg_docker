@@ -1,13 +1,11 @@
 # meg_docker
 
-## Create folds for the runners
-
-### Install the required dependencies locally
+## Install the required dependencies locally
 ```sh
 sudo apt install libssl-dev libicu-dev libcurl4-openssl-dev libkrb5-dev zlib1g-dev
 ```
 
-### Install the Ubuntu actions runner directory
+## Install the Ubuntu actions runner directory
 ```sh
 mkdir -p ./ubuntu_ar
 sudo chmod -R 777 ./ubuntu_ar 
@@ -22,7 +20,7 @@ tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ./run.sh # Start the runner
 ```
 
-### Install the Debian actions runner directory
+## Install the Debian actions runner directory
 ```sh
 mkdir -p ./debian_ar
 sudo chmod -R 777 ./debian_ar 
@@ -38,7 +36,7 @@ tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ./run.sh # Start the runner
 ```
 
-### Install the Arch actions runner directory
+## Install the Arch actions runner directory
 ```sh
 mkdir -p ./arch_ar
 sudo chmod -R 777 ./arch_ar 
@@ -54,15 +52,15 @@ tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ./run.sh # Start the runner
 ```
 
-## Set up Docker containers
+# Set up Docker containers
 
-### Ubuntu container setup
+## Ubuntu container setup
 ```sh
 docker pull ubuntu:latest
 docker build -t ubuntu_image -f Dockerfile.ubuntu .
 docker compose up -d
 ```
-### Debian container setup
+## Debian container setup
 ```sh
 docker pull debian:latest
 docker build -t debian_image -f Dockerfile.debian .
