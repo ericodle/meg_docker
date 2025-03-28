@@ -75,15 +75,17 @@ docker compose up -d
 make ubuntu-up
 ```
 
+# If you want to put them all up:
+```sh
+make all-up
+```
+
 # If you want to rebuild the containers:
 ```sh
 make rebuild
 ```
 
-# For now, this works:
-
+# check if a self-hosted runner is still running in the background
 ```sh
-docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
-docker compose exec debian bash -c "cd actions-runner/ && ./run.sh"
-docker compose exec arch bash -c "cd actions-runner/ && ./run.sh"
+docker exec -it ubuntu_container ps aux
 ```

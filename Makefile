@@ -1,4 +1,4 @@
-.PHONY: rebuild ubuntu-up debian-up arch-up up-all
+.PHONY: rebuild ubuntu-up debian-up arch-up all-up
 
 rebuild:
 	docker compose down
@@ -13,4 +13,7 @@ debian-up:
 arch-up:
 	sudo chmod -R 777 ./arch_ar && docker compose up -d arch && docker compose exec -T arch bash -c "cd actions-runner/ && ./run.sh"
 
-# TODO: these don't work well online.
+all-up:
+	sudo chmod -R 777 ./ubuntu_ar && docker compose up -d ubuntu && docker compose exec -T ubuntu bash -c "cd actions-runner/ && ./run.sh" &
+	sudo chmod -R 777 ./debian_ar && docker compose up -d debian && docker compose exec -T debian bash -c "cd actions-runner/ && ./run.sh" &
+	sudo chmod -R 777 ./arch_ar && docker compose up -d arch && docker compose exec -T arch bash -c "cd actions-runner/ && ./run.sh"
