@@ -9,7 +9,6 @@ services:
       - ./ubuntu_ar:/actions-runner
     stdin_open: true
     tty: true
-    command: tail -f /dev/null
 
   debian:
     build:
@@ -21,7 +20,6 @@ services:
       - ./debian_ar:/actions-runner
     stdin_open: true
     tty: true
-    command: tail -f /dev/null
 
   arch:
     build:
@@ -33,4 +31,3 @@ services:
       - ./arch_ar:/actions-runner
     stdin_open: true
     tty: true
-    command: tail -f /dev/null
