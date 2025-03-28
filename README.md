@@ -1,4 +1,4 @@
-# meg_docker
+# Initial setup
 
 ## Install the required dependencies locally
 ```sh
@@ -72,23 +72,29 @@ docker build -t arch_image -f Dockerfile.arch .
 docker compose up -d
 ```
 
-# Re-starting actions runner
+# Re-starting after power down
 
 Fix permissions locally if necessary
-```
+```sh
 sudo chmod -R 777 ./ubuntu_ar 
 sudo chmod -R 777 ./debian_ar 
 sudo chmod -R 777 ./arch_ar 
 
 ```
 
-Re-start the locally hosted runner
-```
+Mass reset if necessary
+```sh
 docker compose down && docker compose up --build -d
 ```
+
+Or just turn on all the down containers
+```sh
+docker compose up -d
+```
+
 and then in separate shell sessions
 
-```
+```sh
 docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
 docker compose exec debian bash -c "cd actions-runner/ && ./run.sh"
 docker compose exec arch bash -c "cd actions-runner/ && ./run.sh"
