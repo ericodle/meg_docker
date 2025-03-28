@@ -79,3 +79,11 @@ make ubuntu-up
 ```sh
 make rebuild
 ```
+
+# For now, this works:
+
+```sh
+docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
+docker compose exec debian bash -c "cd actions-runner/ && ./run.sh"
+docker compose exec arch bash -c "cd actions-runner/ && ./run.sh"
+```
