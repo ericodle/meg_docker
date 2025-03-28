@@ -70,24 +70,12 @@ docker build -t arch_image -f Dockerfile.arch .
 docker compose up -d
 ```
 
-# Re-starting after host poweroff
-
-Fix permissions locally if necessary:
+# If you are re-starting a container (ubuntu) after host poweroff:
 ```sh
-sudo chmod -R 777 ./ubuntu_ar 
-sudo chmod -R 777 ./debian_ar 
-sudo chmod -R 777 ./arch_ar 
+make ubuntu-up
 ```
 
-Batch container restart:
+# If you want to rebuild the containers:
 ```sh
-docker compose up -d
-```
-
-Next, in separate shell sessions:
-
-```sh
-docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
-docker compose exec debian bash -c "cd actions-runner/ && ./run.sh"
-docker compose exec arch bash -c "cd actions-runner/ && ./run.sh"
+make rebuild
 ```
