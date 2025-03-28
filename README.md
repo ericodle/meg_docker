@@ -13,7 +13,7 @@ cd ./ubuntu_ar
 curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-runner-linux-x64-2.323.0.tar.gz
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ```
-... then configure the runner
+... then configure the runner.
 
 ```sh
 ./config.sh # Configure with specific runner token
@@ -29,7 +29,7 @@ curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ```
 
-... then configure the runner
+... then configure the runner.
 
 ```sh
 ./config.sh # Configure with specific runner token
@@ -45,14 +45,12 @@ curl -O -L https://github.com/actions/runner/releases/download/v2.323.0/actions-
 tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ```
 
-... then configure the runner
+... then configure the runner.
 
 ```sh
 ./config.sh # Configure with specific runner token
 ./run.sh # Start the runner
 ```
-
-# Set up Docker containers
 
 ## Ubuntu container setup
 ```sh
@@ -72,9 +70,9 @@ docker build -t arch_image -f Dockerfile.arch .
 docker compose up -d
 ```
 
-# Re-starting after power down
+# Re-starting after host poweroff
 
-Fix permissions locally if necessary
+Fix permissions locally if necessary.
 ```sh
 sudo chmod -R 777 ./ubuntu_ar 
 sudo chmod -R 777 ./debian_ar 
@@ -82,17 +80,12 @@ sudo chmod -R 777 ./arch_ar
 
 ```
 
-Mass reset if necessary
-```sh
-docker compose down && docker compose up --build -d
-```
-
-Or just turn on all the down containers
+Batch container restart.
 ```sh
 docker compose up -d
 ```
 
-and then in separate shell sessions
+Next, in separate shell sessions:
 
 ```sh
 docker compose exec ubuntu bash -c "cd actions-runner/ && ./run.sh"
