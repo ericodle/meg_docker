@@ -52,19 +52,19 @@ tar xzf actions-runner-linux-x64-2.323.0.tar.gz
 ./run.sh # Start the runner
 ```
 
-## Ubuntu container setup
+## Build the Ubuntu container
 ```sh
 docker pull ubuntu:latest
 docker build -t ubuntu_image -f Dockerfile.ubuntu .
 docker compose up -d
 ```
-## Debian container setup
+## Build the Debian container
 ```sh
 docker pull debian:latest
 docker build -t debian_image -f Dockerfile.debian .
 docker compose up -d
 ```
-## Arch container setup
+## Build the Arch container
 ```sh
 docker build -t arch_image -f Dockerfile.arch .
 docker compose up -d
@@ -77,7 +77,6 @@ Fix permissions locally if necessary:
 sudo chmod -R 777 ./ubuntu_ar 
 sudo chmod -R 777 ./debian_ar 
 sudo chmod -R 777 ./arch_ar 
-
 ```
 
 Batch container restart:
