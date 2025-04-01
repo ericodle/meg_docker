@@ -59,7 +59,7 @@ ENV PATH="${VIRTUAL_ENV}/bin:${PATH}"
 RUN chown -R gha:gha /usr/src
 
 # Copy the entrypoint script to the root (still as root)
-COPY ./ubuntu-entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
 
 # Change permissions while still root
 RUN chmod +x /entrypoint.sh
