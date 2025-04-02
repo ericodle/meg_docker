@@ -85,6 +85,7 @@ make rebuild
 docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 ```
 
-# Grafana
-Open Grafana in your browser: http://localhost:3000
-Default login: admin / admin 
+# Monitoring tools:
+- Open Grafana in your browser: http://localhost:3000
+- Default login: admin / admin
+- Check that prmetheus is working: http://localhost:9090
