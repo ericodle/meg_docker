@@ -70,12 +70,7 @@ docker build -t arch_image -f Dockerfile.arch .
 docker compose up -d
 ```
 
-# If you are re-starting a container (ubuntu) after host poweroff:
-```sh
-make ubuntu-up
-```
-
-# If you want to put them all up:
+# Ensure containers are up (after poweroff,etc)
 ```sh
 make all-up
 ```
