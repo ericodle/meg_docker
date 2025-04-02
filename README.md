@@ -80,7 +80,11 @@ make all-up
 make rebuild
 ```
 
-# check if a self-hosted runner is still running in the background
+# Check docker processes running in background
 ```sh
-docker exec -it ubuntu_container ps aux
+docker ps --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
 ```
+
+# Grafana
+Open Grafana in your browser: http://localhost:3000
+Default login: admin / admin 
